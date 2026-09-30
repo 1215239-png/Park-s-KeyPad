@@ -1,0 +1,7 @@
+file_format: "1"
+id: parks_keypad
+name: "Park's Keypad"
+type: shield
+siblings:
+  - parks_keypad_dongle
+  - parks_keypad_peripheral
