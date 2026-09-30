@@ -1,0 +1,32 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    behaviors {
+        knob_layer: knob_layer_toggle {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <3000>;
+            bindings = <&tog>, <&kp>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                &kp LG(LS(S))    &kp LC(LA(S))    &kp LG(N1)    &knob_layer 1 C_PP
+            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        nav_layer {
+            bindings = <
+                &kp LEFT         &kp LC(LA(S))    &kp RIGHT     &knob_layer 1 C_PP
+            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+    };
+};
