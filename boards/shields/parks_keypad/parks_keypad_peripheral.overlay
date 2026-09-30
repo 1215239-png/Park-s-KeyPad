@@ -18,17 +18,17 @@
     kscan0: kscan_direct {
         compatible = "zmk,kscan-gpio-direct";
         input-gpios
-            = <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 1번 스위치
-            , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 2번 스위치
-            , <&gpio0 2  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 3번 스위치
-            , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 노브 스위치
+            = <&gpio1 4  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 1번 스위치: 1.04
+            , <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 2번 스위치: 0.11
+            , <&gpio1 0  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 3번 스위치: 1.00
+            , <&gpio1 6  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 노브 스위치: 1.06
             ;
     };
 
     encoder: encoder {
         compatible = "alps,ec11";
-        a-gpios = <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // 우회전
-        b-gpios = <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // 좌회전
+        a-gpios = <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // 로터리 우회전: 0.09
+        b-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // 로터리 좌회전: 1.11
         steps = <80>;
         status = "okay";
     };
